@@ -194,7 +194,7 @@ app.get("/profile", authenticateToken, async (req, res) => {
     }
 
     // Construct the profile image URL
-    const profileImage = `http://localhost:8000/images/${user.profileImage}`;
+    const profileImage = `https://wg-server-production.up.railway.app/images/${user.profileImage}`;
 
     // Return the user information and profile image URL in the response
     res.json({ ...user, profileImage });
