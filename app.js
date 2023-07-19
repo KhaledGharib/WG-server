@@ -17,9 +17,14 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://candid-moxie-687458.netlify.app",
+];
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: allowedOrigins,
   })
 );
 
