@@ -537,5 +537,27 @@ app.post(
 
 // ...
 
+const esp8266Url = "http://192.168.100.214/data"; // Replace with your ESP8266 IP address and endpoint
+
+app.post("/data", async (req, res) => {
+  try {
+    const dataToSend = req.body;
+
+    // Forward the incoming HTTPS POST request to the ESP8266 as an HTTP POST request
+    const response = await axios.post(esp8266Url, dataToSend);
+
+    if (response.status === 200) {
+      const responseData = response.data;
+      res.status(response.status).json(responseData);
+    } else {
+      console.log("Error:", response.status);
+      res.status(response.status).json({ error: "Error occurred" });
+    }
+  } catch (error) {
+    console.error("Error sending request to ESP8266:", error);
+    res.status(500).json({ error: "Error sending request to ESP8266" });
+  }
+});
+
 // Start the server
 startServer();
