@@ -537,7 +537,7 @@ app.post(
 
 // ...
 
-const esp8266Url = "http://192.168.100.214/data"; // Replace with your ESP8266 IP address and endpoint
+const esp8266Url = "https://192.168.100.214/data"; // Replace with your ESP8266 IP address and endpoint
 
 app.post("/esp", async (req, res) => {
   try {
