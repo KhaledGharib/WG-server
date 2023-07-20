@@ -17,14 +17,14 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://candid-moxie-687458.netlify.app",
-];
+// const allowedOrigins = [
+//   "http://localhost:3000",
+//   "https://candid-moxie-687458.netlify.app",
+// ];
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: "*",
   })
 );
 
@@ -539,7 +539,7 @@ app.post(
 
 const esp8266Url = "http://192.168.100.214/data"; // Replace with your ESP8266 IP address and endpoint
 
-app.post("/data", async (req, res) => {
+app.post("/esp", async (req, res) => {
   try {
     const dataToSend = req.body;
 
