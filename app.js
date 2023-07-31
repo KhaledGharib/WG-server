@@ -300,7 +300,7 @@ app.delete(
 app.put("/update-display/:displayId", authenticateToken, async (req, res) => {
   try {
     const { displayId } = req.params;
-    const { display_id, type, isActive, ipAddress, data } = req.body;
+    const { display_id, type, isActive, ipAddress, data, location } = req.body;
     const userId = req.userId;
 
     // Check if the authenticated user owns the specified display
@@ -326,6 +326,7 @@ app.put("/update-display/:displayId", authenticateToken, async (req, res) => {
         data,
         isActive,
         ipAddress,
+        location,
       },
     });
 
