@@ -36,4 +36,6 @@ model display {
   user        user     @relation(fields: [userId], references: [id])
   userId      Int
   isActive    Boolean  @default(false)
+  location    String
+  createdAt   DateTime @default(now()) // Add this line for createdAt field
 }

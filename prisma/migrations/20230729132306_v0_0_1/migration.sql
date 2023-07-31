@@ -26,10 +26,12 @@ CREATE TABLE "display" (
     "id" SERIAL NOT NULL,
     "display_id" TEXT NOT NULL,
     "type" TEXT NOT NULL,
-    "ipAddress" TEXT NOT NULL,
+    "ipAddress" VARCHAR(45) NOT NULL,
     "data" JSONB,
     "userId" INTEGER NOT NULL,
     "isActive" BOOLEAN NOT NULL DEFAULT false,
+    "location" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "display_pkey" PRIMARY KEY ("id")
 );
